@@ -16,9 +16,9 @@ class StudentTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -36,11 +36,17 @@ class StudentTableViewController: UITableViewController {
         
         cell.textLabel?.text = "\(student.lastName) \(student.firstName)"
         cell.detailTextLabel?.text = "\(student.averageScore)"
+        cell.showsReorderControl = true
 
         return cell
     }
     
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let student = students[indexPath.row]
+        print(student.lastName)
+    }
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -61,12 +67,13 @@ class StudentTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        let movedStudent = students.remove(at: fromIndexPath.row)
+        students.insert(movedStudent, at: to.row)
     }
-    */
+    
 
     /*
     // Override to support conditional rearranging of the table view.
