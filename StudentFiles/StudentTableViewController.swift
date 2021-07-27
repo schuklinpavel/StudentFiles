@@ -31,11 +31,10 @@ class StudentTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath) as! StudentTableViewCell
         let student = students[indexPath.row]
         
-        cell.textLabel?.text = "\(student.lastName) \(student.firstName)"
-        cell.detailTextLabel?.text = "\(student.averageScore)"
+        cell.update(with: student)
         cell.showsReorderControl = true
 
         return cell
@@ -46,6 +45,9 @@ class StudentTableViewController: UITableViewController {
         print(student.lastName)
     }
     
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
     
     /*
     // Override to support conditional editing of the table view.
