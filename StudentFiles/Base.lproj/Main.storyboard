@@ -42,6 +42,7 @@
                                 <connections>
                                     <outlet property="detailLabel" destination="QNn-cn-Sal" id="wOI-dn-go2"/>
                                     <outlet property="titleLabel" destination="nvC-sa-Mvb" id="gXs-nY-eBX"/>
+                                    <segue destination="fDV-D9-8Ak" kind="presentation" id="EbQ-Sh-3Bs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -50,11 +51,62 @@
                             <outlet property="delegate" destination="ecq-ND-NPw" id="y5G-bw-si0"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Student Files" id="OBm-05-hML"/>
+                    <navigationItem key="navigationItem" title="Student Files" id="OBm-05-hML">
+                        <barButtonItem key="leftBarButtonItem" systemItem="add" id="b10-k6-ETV">
+                            <connections>
+                                <segue destination="fDV-D9-8Ak" kind="presentation" id="PwH-T6-Wh6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O0f-wB-brM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="709" y="102"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="cPE-OX-Bye">
+            <objects>
+                <tableViewController id="Fmj-s7-Kcn" customClass="AddEditStudentTableViewController" customModule="StudentFiles" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FL7-VZ-S41">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SaN-9V-dp9">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SaN-9V-dp9" id="8Xf-j3-SWP">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Fmj-s7-Kcn" id="6PE-rZ-gGx"/>
+                            <outlet property="delegate" destination="Fmj-s7-Kcn" id="WmJ-aK-ZIz"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="dAf-ta-LFa"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NaP-ad-5Sm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2223" y="102"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="UAE-wQ-vGA">
+            <objects>
+                <navigationController id="fDV-D9-8Ak" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5vg-RF-7Te">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Fmj-s7-Kcn" kind="relationship" relationship="rootViewController" destinationCreationSelector="addEditStudent:sender:" id="GXE-tc-pDO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="obh-qJ-7Ng" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1484" y="102"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="SIp-zG-b62">
@@ -73,6 +125,9 @@
             <point key="canvasLocation" x="-7" y="102"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="EbQ-Sh-3Bs"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

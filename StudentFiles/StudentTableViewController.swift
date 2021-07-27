@@ -19,6 +19,16 @@ class StudentTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    @IBSegueAction func addEditStudent(_ coder: NSCoder, sender: Any?) -> AddEditStudentTableViewController? {
+        if let cell = sender as? UITableViewCell,
+           let indexPath = tableView.indexPath(for: cell) {
+            let student = students[indexPath.row]
+            return AddEditStudentTableViewController(coder: coder, student: student)
+        } else {
+            return AddEditStudentTableViewController(coder: coder, student: nil)
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -38,11 +48,6 @@ class StudentTableViewController: UITableViewController {
         cell.showsReorderControl = true
 
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let student = students[indexPath.row]
-        print(student.lastName)
     }
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
