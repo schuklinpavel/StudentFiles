@@ -153,14 +153,27 @@
                             <outlet property="delegate" destination="Fmj-s7-Kcn" id="WmJ-aK-ZIz"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="dAf-ta-LFa"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="dAf-ta-LFa">
+                        <barButtonItem key="leftBarButtonItem" title="Отмена" id="Nho-dc-J03">
+                            <connections>
+                                <segue destination="cgg-pz-8qH" kind="unwind" identifier="cancelUnwind" unwindAction="unwindToStudentTableViewWithSegue:" id="eSa-Th-gQX"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Сохранить" id="fVD-ea-cLA">
+                            <connections>
+                                <segue destination="cgg-pz-8qH" kind="unwind" identifier="saveUnwind" unwindAction="unwindToStudentTableViewWithSegue:" id="KLr-du-6hn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="averageScoreTextField" destination="qB9-Pf-71m" id="H5V-90-P0R"/>
                         <outlet property="firstNameTextField" destination="Mu2-3w-4v2" id="7YP-AQ-0DY"/>
                         <outlet property="lastNameTextField" destination="svB-Nr-WB2" id="rIt-pa-E2c"/>
+                        <outlet property="saveButton" destination="fVD-ea-cLA" id="3XV-Wo-Fan"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NaP-ad-5Sm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="cgg-pz-8qH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2223" y="102"/>
         </scene>

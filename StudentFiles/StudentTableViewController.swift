@@ -29,6 +29,23 @@ class StudentTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func unwindToStudentTableView(segue: UIStoryboardSegue) {
+        guard segue.identifier == "saveUnwind",
+              let sourceViewController = segue.source as? AddEditStudentTableViewController,
+              let student = sourceViewController.student else {
+            return
+        }
+
+        if let selectedIndexPath = tableView.indexPathForSelectedRow {
+            students[selectedIndexPath.row] = student
+            tableView.reloadRows(at: [selectedIndexPath], with: .none)
+        } else {
+            let newIndexPath = IndexPath(row: students.count, section: 0)
+            students.append(student)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -100,10 +117,10 @@ class StudentTableViewController: UITableViewController {
     */
 
     var students: [Student] = [
-        Student(lastName: "Иванов", firstName: "Пётр", averageScore: 4.7),
-        Student(lastName: "Петров", firstName: "Иван", averageScore: 4.9),
-        Student(lastName: "Ivanov", firstName: "Pavel", averageScore: 4.1),
-        Student(lastName: "Smirnov", firstName: "Пётр", averageScore: 5.0),
-        Student(lastName: "Иванов", firstName: "Igor", averageScore: 4.3),
+        Student(lastName: "Иванов", firstName: "Пётр", averageScore: 4),
+        Student(lastName: "Петров", firstName: "Иван", averageScore: 4),
+        Student(lastName: "Ivanov", firstName: "Pavel", averageScore: 4),
+        Student(lastName: "Smirnov", firstName: "Пётр", averageScore: 5),
+        Student(lastName: "Иванов", firstName: "Igor", averageScore: 3),
     ]
 }
