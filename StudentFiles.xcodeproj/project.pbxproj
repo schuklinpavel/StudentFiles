@@ -7,18 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C4D9FBD026B3356C00ACC6B6 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D9FBCF26B3356C00ACC6B6 /* Student.swift */; };
 		C4F7AA6F26B064EA00348BE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7AA6E26B064EA00348BE3 /* AppDelegate.swift */; };
 		C4F7AA7126B064EA00348BE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7AA7026B064EA00348BE3 /* SceneDelegate.swift */; };
 		C4F7AA7626B064EA00348BE3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F7AA7426B064EA00348BE3 /* Main.storyboard */; };
 		C4F7AA7826B064EB00348BE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4F7AA7726B064EB00348BE3 /* Assets.xcassets */; };
 		C4F7AA7B26B064EB00348BE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4F7AA7926B064EB00348BE3 /* LaunchScreen.storyboard */; };
-		C4F7AA8526B0650400348BE3 /* Student.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7AA8426B0650400348BE3 /* Student.swift */; };
 		C4F7AA8926B070D000348BE3 /* StudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7AA8826B070D000348BE3 /* StudentTableViewController.swift */; };
 		C4F7AA8C26B08A7600348BE3 /* StudentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7AA8B26B08A7600348BE3 /* StudentTableViewCell.swift */; };
 		C4F7AA8F26B091EC00348BE3 /* AddEditStudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F7AA8E26B091EC00348BE3 /* AddEditStudentTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C4D9FBCF26B3356C00ACC6B6 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Student.swift; sourceTree = "<group>"; };
 		C4F7AA6B26B064EA00348BE3 /* StudentFiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StudentFiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4F7AA6E26B064EA00348BE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4F7AA7026B064EA00348BE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,7 +27,6 @@
 		C4F7AA7726B064EB00348BE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4F7AA7A26B064EB00348BE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4F7AA7C26B064EB00348BE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C4F7AA8426B0650400348BE3 /* Student.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Student.swift; path = ../../../Student.swift; sourceTree = "<group>"; };
 		C4F7AA8826B070D000348BE3 /* StudentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTableViewController.swift; sourceTree = "<group>"; };
 		C4F7AA8B26B08A7600348BE3 /* StudentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentTableViewCell.swift; sourceTree = "<group>"; };
 		C4F7AA8E26B091EC00348BE3 /* AddEditStudentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditStudentTableViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +43,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C4D9FBD326B3361300ACC6B6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C4F7AA6E26B064EA00348BE3 /* AppDelegate.swift */,
+				C4F7AA7026B064EA00348BE3 /* SceneDelegate.swift */,
+				C4F7AA8B26B08A7600348BE3 /* StudentTableViewCell.swift */,
+				C4F7AA8826B070D000348BE3 /* StudentTableViewController.swift */,
+				C4F7AA8E26B091EC00348BE3 /* AddEditStudentTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C4D9FBD426B3363600ACC6B6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C4F7AA7926B064EB00348BE3 /* LaunchScreen.storyboard */,
+				C4F7AA7426B064EA00348BE3 /* Main.storyboard */,
+				C4F7AA7726B064EB00348BE3 /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C4F7AA6226B064EA00348BE3 = {
 			isa = PBXGroup;
 			children = (
@@ -63,14 +85,8 @@
 			isa = PBXGroup;
 			children = (
 				C4F7AA8326B064F300348BE3 /* Model */,
-				C4F7AA6E26B064EA00348BE3 /* AppDelegate.swift */,
-				C4F7AA7026B064EA00348BE3 /* SceneDelegate.swift */,
-				C4F7AA8B26B08A7600348BE3 /* StudentTableViewCell.swift */,
-				C4F7AA8826B070D000348BE3 /* StudentTableViewController.swift */,
-				C4F7AA8E26B091EC00348BE3 /* AddEditStudentTableViewController.swift */,
-				C4F7AA7426B064EA00348BE3 /* Main.storyboard */,
-				C4F7AA7726B064EB00348BE3 /* Assets.xcassets */,
-				C4F7AA7926B064EB00348BE3 /* LaunchScreen.storyboard */,
+				C4D9FBD326B3361300ACC6B6 /* Controller */,
+				C4D9FBD426B3363600ACC6B6 /* View */,
 				C4F7AA7C26B064EB00348BE3 /* Info.plist */,
 			);
 			path = StudentFiles;
@@ -79,7 +95,7 @@
 		C4F7AA8326B064F300348BE3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				C4F7AA8426B0650400348BE3 /* Student.swift */,
+				C4D9FBCF26B3356C00ACC6B6 /* Student.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -155,11 +171,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4F7AA6F26B064EA00348BE3 /* AppDelegate.swift in Sources */,
+				C4D9FBD026B3356C00ACC6B6 /* Student.swift in Sources */,
 				C4F7AA8F26B091EC00348BE3 /* AddEditStudentTableViewController.swift in Sources */,
 				C4F7AA8C26B08A7600348BE3 /* StudentTableViewCell.swift in Sources */,
 				C4F7AA7126B064EA00348BE3 /* SceneDelegate.swift in Sources */,
 				C4F7AA8926B070D000348BE3 /* StudentTableViewController.swift in Sources */,
-				C4F7AA8526B0650400348BE3 /* Student.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
