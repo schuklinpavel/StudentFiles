@@ -18,7 +18,7 @@ class StudentTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
-    
+
     @IBSegueAction func addEditStudent(_ coder: NSCoder, sender: Any?) -> AddEditStudentTableViewController? {
         if let cell = sender as? UITableViewCell,
            let indexPath = tableView.indexPath(for: cell) {
@@ -28,7 +28,7 @@ class StudentTableViewController: UITableViewController {
             return AddEditStudentTableViewController(coder: coder, student: nil)
         }
     }
-    
+
     @IBAction func unwindToStudentTableView(segue: UIStoryboardSegue) {
         guard segue.identifier == "saveUnwind",
               let sourceViewController = segue.source as? AddEditStudentTableViewController,
@@ -45,7 +45,7 @@ class StudentTableViewController: UITableViewController {
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
     }
-    
+
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -56,21 +56,24 @@ class StudentTableViewController: UITableViewController {
         return students.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath) as! StudentTableViewCell
-        let student = students[indexPath.row]
-        
-        cell.update(with: student)
-        cell.showsReorderControl = true
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "StudentCell", for: indexPath)
+            as? StudentTableViewCell {
+            let student = students[indexPath.row]
 
-        return cell
+            cell.update(with: student)
+            cell.showsReorderControl = true
+
+            return cell
+        }
+        return UITableViewCell()
     }
-    
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath)
+    -> UITableViewCell.EditingStyle {
         return .delete
     }
-    
+
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -79,24 +82,24 @@ class StudentTableViewController: UITableViewController {
     }
     */
 
-    
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle,
+                            forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             students.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
         } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+            // Create a new instance of the appropriate class, insert it into the array,
+            // and add a new row to the table view
+        }
     }
 
-    
     // Override to support rearranging the table view.
+    // swiftlint:disable:next identifier_name
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let movedStudent = students.remove(at: fromIndexPath.row)
         students.insert(movedStudent, at: to.row)
     }
-    
 
     /*
     // Override to support conditional rearranging of the table view.
@@ -121,6 +124,6 @@ class StudentTableViewController: UITableViewController {
         Student(lastName: "Петров", firstName: "Иван", averageScore: 4),
         Student(lastName: "Ivanov", firstName: "Pavel", averageScore: 4),
         Student(lastName: "Smirnov", firstName: "Пётр", averageScore: 5),
-        Student(lastName: "Иванов", firstName: "Igor", averageScore: 3),
+        Student(lastName: "Иванов", firstName: "Igor", averageScore: 3)
     ]
 }

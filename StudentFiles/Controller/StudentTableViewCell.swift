@@ -8,7 +8,7 @@
 import UIKit
 
 class StudentTableViewCell: UITableViewCell {
-    
+
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var detailLabel: UILabel!
 
